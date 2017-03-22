@@ -1,8 +1,8 @@
 'use strict'
 
-const config = require('./config.js')
 const reekoh = require('reekoh')
 const _plugin = new reekoh.plugins.ExceptionLogger()
+
 // let connectionString
 
 /**
@@ -21,18 +21,23 @@ _plugin.on('exception', (error) => {
  */
 _plugin.once('ready', () => {
 
-  let err = config.validate(_plugin.config)
-
-  if (err) {
-    return console.error('Config Validation Error: \n', err)
-  }
-
   /**
- * Example:
- *
- * var connectionString = options.connstring;
- */
+   *
+   *  Initialize the connection using the _plugin.config. See config.json
+   *  You can customize config.json based on the needs of your plugin.
+   *  Reekoh will inject these configuration parameters as _plugin.config when the platform bootstraps the plugin.
+   *
+   * Example:
+   *
+   * var connectionString = _plugin.config.connString
+   *
+   *
+   *  Note: Config Names are based on what you specify on the config.json.
+   */
 
   // TODO: Initialize the connection to the error/bug tracking service here.
-  console.log('Exception Logger has been initialized.')
+  _plugin.log('Exception Logger has been initialized.')
+  _plugin.emit('init')
 })
+
+module.exports = _plugin

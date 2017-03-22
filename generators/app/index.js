@@ -21,7 +21,7 @@ module.exports = class extends Generator {
         choices: [
           'Connector',
           'Channel',
-          'Device Sync',
+          'Inventory Sync',
           'Exception Logger',
           'Gateway',
           'Logger',
@@ -38,9 +38,9 @@ module.exports = class extends Generator {
             { fromRoot: true}, { local: require.resolve('../channel')})
           break
 
-        case 'Device Sync':
-          self.composeWith(`${APP_NAME}:device-sync`,
-            { fromRoot: true}, { local: require.resolve('../device-sync')})
+        case 'Inventory Sync':
+          self.composeWith(`${APP_NAME}:inventory-sync`,
+            { fromRoot: true}, { local: require.resolve('../inventory-sync')})
           break
 
         case 'Gateway':

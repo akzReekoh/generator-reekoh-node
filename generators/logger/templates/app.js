@@ -1,9 +1,9 @@
 'use strict'
 
-const config = require('./config.js')
 const reekoh = require('reekoh')
 const _plugin = new reekoh.plugins.Logger()
-// let connection
+
+// let connectionString
 
 /**
  * Emitted when device data is received.
@@ -21,16 +21,23 @@ _plugin.on('log', (logData) => {
  */
 _plugin.once('ready', () => {
 
-  let err = config.validate(_plugin.config)
-
-  if (err) {
-    return console.error('Config Validation Error: \n', err)
-  }
-
   /**
-   * var connectionString = options.connstring;
-   * connection = loggingService.connect(connectionString);
    *
+   *  Initialize the connection using the _plugin.config. See config.json
+   *  You can customize config.json based on the needs of your plugin.
+   *  Reekoh will inject these configuration parameters as _plugin.config when the platform bootstraps the plugin.
+   *
+   *
+   * let connectionString = _plugin.config.connString
+   * connection = loggingService.connect(connectionString)
+   *
+   *
+   *  Note: Config Names are based on what you specify on the config.json.
    */
-  console.log('Logger has been initialized.')
+
+  // TODO: Initialize the connection to the logging service here.
+  _plugin.log('Logger has been initialized.')
+  _plugin.emit('init')
 })
+
+module.exports = _plugin

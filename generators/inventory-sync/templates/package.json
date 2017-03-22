@@ -1,20 +1,19 @@
 {
-  "name": "device-sync",
+  "name": "inventory-sync",
   "version": "1.0.0",
-  "description": "DeviceSync plugin seed",
+  "description": "Inventory Sync plugin seed",
   "author": "Reekoh, Inc.",
   "license": "GPL-3.0",
   "main": "app.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp lint"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/Reekoh/"
   },
   "dependencies": {
-    "reekoh-node": "^1.0.0",
-    "validate.js": "^0.11.1"
+    "reekoh": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -23,6 +22,7 @@
     "gulp-json-lint": "^0.1.0",
     "gulp-mocha": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-standard": "^8.0.4",
     "jshint": "^2.9.4",
     "mocha": "^2.5.3",
     "should": "^9.0.2"

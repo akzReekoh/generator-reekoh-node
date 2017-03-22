@@ -1,0 +1,14 @@
+{
+  "config_field1": {
+	"label": "Config Field 1",
+	"type": "String",
+	"required": true,
+	"help": "This is the help text for config field 1."
+  },
+  "config_field2": {
+	"label": "Config Field 2",
+	"type": "Number",
+	"required": false,
+	"help": "(Optional) This is the help text for config field 2."
+  }
+}

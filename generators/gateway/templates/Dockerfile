@@ -4,13 +4,15 @@ MAINTAINER Reekoh
 
 WORKDIR /home
 
-# Install dependencies
+# copy files
 ADD . /home
+
+# Install dependencies
 RUN npm install
 
 # setting need environment variables
 ENV PLUGIN_ID="demo.gateway" \
-		PIPELINE="demo.gateway.pipeline" \
+    PIPELINE="demo.gateway.pipeline" \
     PORT="8080" \
     KEY="" \
     CERT="" \
