@@ -1,0 +1,32 @@
+---
+version: 1.0.0
+kind: Plugin
+metadata:
+  name: Connector Plugin Seed
+  description: Connector plugin seed
+  documentation: ./README.md
+  icon: path/to/icon300x300.png
+  signupLink: https://myservice.com/signup
+  type: Stream
+  price: 0
+  tags:
+    - Connector
+config:
+  configField1:
+    label: Config Field 1
+    type: String
+    required: true
+    help: This is the help text for config field 1.
+    maxlength: 60
+    format:
+      pattern: "[a-z0-9]+"
+      flags: i
+  configField2:
+    label: Config Field 2
+    type: Number
+    required: false
+    help: "(Optional) This is the help text for config field 2."
+release:
+  version: 1.0.0
+  notes: path/to/RELEASENOTESv1.0.0.md
+  image: path/to/docker/image

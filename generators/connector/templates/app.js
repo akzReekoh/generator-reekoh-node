@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 let reekoh = require('reekoh')
 let _plugin = new reekoh.plugins.Connector()
@@ -31,4 +31,9 @@ _plugin.once('ready', () => {
    */
   console.log(_plugin.config)
   _plugin.log('Connector has been initialized.')
+})
+
+process.on('SIGINT', function () {
+  // Do graceful exit
+  // connection.close()
 })

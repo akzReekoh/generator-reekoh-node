@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 let reekoh = require('reekoh')
 let _plugin = new reekoh.plugins.Service()
@@ -54,4 +54,9 @@ _plugin.once('ready', () => {
    */
   console.log(_plugin.config)
   _plugin.log('Service has been initialized.')
+})
+
+process.on('SIGINT', () => {
+  // Do graceful exit
+  serviceClient.close()
 })

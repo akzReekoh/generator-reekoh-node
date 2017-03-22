@@ -20,7 +20,6 @@ _plugin.on('exception', (error) => {
  * The plugin should listen once and execute its init process.
  */
 _plugin.once('ready', () => {
-
   /**
    *
    *  Initialize the connection using the _plugin.config. See config.json
@@ -37,7 +36,8 @@ _plugin.once('ready', () => {
 
   // TODO: Initialize the connection to the error/bug tracking service here.
   _plugin.log('Exception Logger has been initialized.')
-  _plugin.emit('init')
 })
 
-module.exports = _plugin
+process.on('SIGINT', () => {
+  // Do graceful exit
+})

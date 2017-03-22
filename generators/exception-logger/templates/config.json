@@ -1,8 +1,0 @@
-{
-  "connectionString": {
-    "label": "Connection String",
-    "type": "String",
-    "required": true,
-    "help": "This is the help text for Connection String."
-  }
-}

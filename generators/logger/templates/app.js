@@ -20,7 +20,6 @@ _plugin.on('log', (logData) => {
  * The plugin should listen once and execute its init process.
  */
 _plugin.once('ready', () => {
-
   /**
    *
    *  Initialize the connection using the _plugin.config. See config.json
@@ -37,7 +36,9 @@ _plugin.once('ready', () => {
 
   // TODO: Initialize the connection to the logging service here.
   _plugin.log('Logger has been initialized.')
-  _plugin.emit('init')
 })
 
-module.exports = _plugin
+process.on('SIGINT', () => {
+  // Do graceful exit
+  // connection.close()
+})

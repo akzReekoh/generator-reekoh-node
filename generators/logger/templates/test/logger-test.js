@@ -1,7 +1,4 @@
-/**
- * Just a sample code to test the logger plugin.
- * Kindly write your own unit tests for your own plugin.
- */
+/* global describe, before, it, after */
 
 'use strict'
 
@@ -24,10 +21,10 @@ describe('Loggly Logger', function () {
         _conn = conn
         return conn.createChannel()
       }).then((channel) => {
-      _channel = channel
-    }).catch((err) => {
-      console.log(err)
-    })
+        _channel = channel
+      }).catch((err) => {
+        console.log(err)
+      })
   })
 
   after('terminate child process', function (done) {

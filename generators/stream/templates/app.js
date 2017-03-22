@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 let reekoh = require('reekoh')
 let _plugin = new reekoh.plugins.Stream()
@@ -30,18 +30,18 @@ _plugin.on('sync', () => {
 })
 
 /**
- * Emitted when a message or command is received from the platform. 
+ * Emitted when a message or command is received from the platform.
  * The message object has the following properties:
  * - device {String} - which is the ID of the target device
  * - messageId {String} - which is the ID of the message in the Reekoh database
  * - message {String} - which is the message/command itself
  *
- * @param message {Object} - The message which came from an Application or another Device from within the same pipeline as the stream. 
+ * @param message {Object} - The message which came from an Application or another Device from within the same pipeline as the stream.
  */
 _plugin.on('message', function (message) {
   // TODO: Send the message to the target client/device. These messages may contain data or commands.
-  console.log(message);
-});
+  console.log(message)
+})
 
 /**
  * Emitted when the platform bootstraps the plugin. The plugin should listen once and execute its init process.
@@ -63,7 +63,7 @@ _plugin.once('ready', () => {
    * let service = require('service')
    *
    * service.connect(_plugin.config, (error, serviceClient) => {
-   * 	client = serviceClient
+   *  client = serviceClient
    * });
    */
 
@@ -72,4 +72,9 @@ _plugin.once('ready', () => {
    */
   console.log(_plugin.config)
   _plugin.log('Stream has been initialized.')
+})
+
+process.on('SIGINT', () => {
+  // Do graceful exit
+  client.close()
 })
